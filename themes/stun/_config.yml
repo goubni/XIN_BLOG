@@ -139,11 +139,11 @@ header:
   height: 100%
   # Background image of site header.
   bg_image:
-    enable: false
+    enable: true
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: /images/1.jpg
+    url: /images/1.gif
   # Banner area.
   banner:
     # Effective for all pages.
@@ -164,9 +164,9 @@ header:
     bg_color: '#333'
   # The icon that prompts the user to pull down.
   scroll_down_icon:
-    enable: false
+    enable: true
     # Icon name in FontAwesome, see: https://fontawesome.com/icons
-    name: fas fa-angle-down
+    name: fas fa-solid fa-sort-down
     animation: true
 
 # The body of site.
@@ -295,16 +295,16 @@ author:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: /images/icons/stun-logo.svg
+    url: /images/icons/2.png
     # If true, the avatar would be displayed in a circle.
     rounded: false
     # Opacity of avatar (value: 0 ~ 1)
     opacity: 1
     # Mouse hover animation
     # Optional values: turn | shake
-    animation: turn
+    animation: shake
   # Your favorite motto.
-  motto: 王 桑
+  motto: 每天都得有好心情😉🤪
 # Social links
 # Value before `||` is the target link, value after `||` is the name of FontAwesome icon.
 # Usage: `Key: /link/ || fa(s|r|l|d|b) fa-iconname`
