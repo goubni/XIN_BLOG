@@ -680,9 +680,9 @@ assist_search:
 # Canvas-ribbon
 # Dependency: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
+  enable: true
   # The width of the ribbon.
-  size: 120
+  size: 300
   # The transparency of the ribbon.
   alpha: 0.6
   # The display level of the ribbon.
@@ -691,7 +691,7 @@ canvas_ribbon:
 # Canvas-nest
 # Dependency: https://github.com/hustcc/canvas-nest.js
 canvas_nest:
-  enable: false
+  enable: true
   # Color of lines.
   # RGB values, use `,` to separate.
   color: '0,0,0'
