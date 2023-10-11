@@ -208,7 +208,7 @@ footer:
     opacity: 0.5
   # Copyright information.
   copyright:
-    enable: true
+    enable: false
     # If not set, will be used `author` from Hexo main config (e.g. liuyib All Rights Reserved)
     text:
     # Start time. If not set, the current year will be used.
@@ -380,7 +380,7 @@ heading_line: true
 
 # Reward QR Code
 reward:
-  enable: false
+  enable: true
   # Your QR code for collecting money.
   alipay:
   wechat:
