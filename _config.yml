@@ -11,6 +11,11 @@ author: 王 桑
 language: zh-CN
 timezone: ''
 
+search:
+  path: search.json
+  field: post
+  content: true
+
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://example.com

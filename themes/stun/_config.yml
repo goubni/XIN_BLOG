@@ -110,7 +110,7 @@ night_mode:
 # The layout for sidebar and content of site.
 layout:
   # The width of the content area in website.
-  content: 768px
+  content: 800px
   # The width of the sidebar in website.
   sidebar: 300px
   # The width between the content and the sidebar.
@@ -137,7 +137,7 @@ header:
     post: true
   # If you set a percentage, it will be calculated based on the height of screen (Supports all CSS units)
   height: 100%
-  # Background image of site header.
+  # Background image of site 、.
   bg_image:
     enable: true
     # In theme directory (source/images): /images/avatar.png
@@ -313,9 +313,11 @@ author:
 # e.g. `origin:sf`, so `sf` will be displayed.
 social:
   github: https://github.com/ || fab fa-github
-  google: https://plus.google.com/ || fab fa-google
-  twitter: https://twitter.com/ || fab fa-twitter
-  youtube: https://youtube.com/ || fab fa-youtube
+  QQ: tencent://message?uin=480694874 || fab fa-qq
+
+  # google: https://plus.google.com/ || fab fa-google
+  # twitter: https://twitter.com/ || fab fa-twitter
+  # youtube: https://youtube.com/ || fab fa-youtube
   # segmentfault: https://segmentfault.com/ || origin:sf
   # weibo: https://weibo.com/ || fab fa-weibo
   # zhihu: https://www.zhihu.com/ || origin:知
@@ -324,7 +326,7 @@ social:
   # qq: yournumber || fab fa-qq
 
 social_setting:
-  enable: false
+  enable: true
   # Only show by icon.
   icon_only: true
 
@@ -358,8 +360,8 @@ feed:
 reading_progress:
   enable: true
   # (Please use '' to wrap the value)
-  color: '#fc6423'
-  height: 1px
+  color: limegreen
+  height: 4px
 
 # ---------------------------------------------------------------
 # Page config
@@ -368,10 +370,10 @@ reading_progress:
 codeblock:
   # The style of code block.
   # Optional values: default | simple | carbon
-  style: default
+  style: carbon
   # The theme of code highlight.
   # Optional values: light | dark | ocean
-  highlight: light
+  highlight: ocean
   # Whether to wrap when code overflow.
   word_wrap: false
 
@@ -382,8 +384,8 @@ heading_line: true
 reward:
   enable: true
   # Your QR code for collecting money.
-  alipay:
-  wechat:
+  alipay: /images/2.jpg
+  wechat: /images/3.png
 
 # ---------------------------------------------------------------
 # Post config
@@ -658,7 +660,7 @@ algolia_search:
 # Local Search
 # See: https://github.com/wzpan/hexo-generator-search/
 local_search:
-  enable: false
+  enable: true
 
 # Auxiliary search buttons
 # ! -----------------------------------------------------------------------------------------
@@ -760,7 +762,7 @@ gallery_waterfall:
 # Lazy load the images of post.
 # See: https://github.com/tuupola/lazyload
 lazyload:
-  enable: false
+  enable: true
   # Optional values: gif | block
   placeholder: gif
 
@@ -845,7 +847,7 @@ tag_cloud:
   start_color: '#a4d8fa'
   end_color: '#49b1f5'
   # Size for tag.
-  min_size: 16
+  min_size: 25
   max_size: 26
   # Maximum number of tags displayed. Change it if you have more than 200 tags.
   max_amount: 200
