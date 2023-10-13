@@ -474,23 +474,23 @@ stick_top:
 # Gittalk
 # See: https://github.com/gitalk/gitalk/
 gitalk:
-  enable: false
+  enable: true
   # Github username.
-  owner:
+  owner: goubni
   # Github repository.
-  repo:
+  repo: XIN_BLOG
   # Github Application Client ID.
-  client_id:
+  client_id: b7a1bc0f8b6c0edb5231
   # Github Application Client Secret.
-  client_secret:
+  client_secret: 25df925e3bbe2a643b18283650bb4dcec314320c
   # GitHub repo owner and collaborators, only these guys can initialize github issues.
-  admin:
+  admin: goubni
   # Facebook-like distraction free mode.
-  distraction_free_mode: false
+  distraction_free_mode: true
   # Gitalk's display language depends on user's browser or system environment.
   # If you want everyone visiting your site to see a uniform language, you can set a force language value.
   # Optional values: en | zh-CN | es-ES | fr | ru | zh-TW
-  language:
+  language: zh-CN
 
 # Waline
 # See: https://waline.js.org/
