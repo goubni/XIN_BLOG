@@ -9,6 +9,8 @@ search:
   path: search.json
   field: post
   content: true
+aplayer:
+  meting: true
 url: http://example.com
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
