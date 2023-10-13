@@ -557,7 +557,7 @@ minivaline:
 # Livere
 # See: https://www.livere.com/
 livere:
-  enable: true
+  enable: false
   uid: MTAyMC81OTA5Mi8zNTU1NA==
 
 # Disqus
