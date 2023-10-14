@@ -2,6 +2,7 @@
 title: 建站教程
 excerpt: 过程坎坷，没有耐心debug可不好搭
 quicklink: true
+date: 2023-10-1 22:54:49
 ---
 
 # 建站过程
