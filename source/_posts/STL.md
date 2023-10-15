@@ -16,15 +16,15 @@ date: 2023-10-14 23:21:00
 
 - 头文件
   
-  > #include<vector>
+  > #include`<vector>`
 
 - 初始化
   
-  > vector<int> c //定义了一个数据类型为int的数组
+  > vector`<int>` c //定义了一个数据类型为int的数组
   > 
-  > vector<double> c(n) //定义了一个数据类型为double的,长为n
+  > vector`<double>` c(n) //定义了一个数据类型为double的,长为n
   > 
-  > vector<int> c(n,1) //定义了一个数据类型为int的，长为n，全是1
+  > vector`<int>` c(n,1) //定义了一个数据类型为int的，长为n，全是1
 
 - 函数运用
   
@@ -70,15 +70,15 @@ date: 2023-10-14 23:21:00
 
 - 头文件
   
-  > #include<stack>
+  > #include`<stack>`
 
 - 初始化
   
-  > stack<int> s;
+  > stack`<int>`s;
   > 
-  > stack<string> s;
+  > stack`<string>` s;
   > 
-  > stack<double> s;
+  > stack`<double>` s;
 
 - 函数运用
   
@@ -128,11 +128,11 @@ deque和queue只是没有了排序功能，一个是双端队列，一个是队�
 
 - 头文件
   
-  > #include <queue> //没错，只要引入一个queue就可以了
+  > #include `<queue>` //没错，只要引入一个queue就可以了
 
 - 初始化
   
-  > priority_queue<int> pq; //创建了一个名为pq优先队列
+  > priority_queue`<int>` pq; //创建了一个名为pq优先队列
 
 - 函数运用
   
@@ -140,9 +140,9 @@ deque和queue只是没有了排序功能，一个是双端队列，一个是队�
   
   2. 设置优先级：
      
-     > priority_queue<int> pq; //默认是大根堆，弹出的是最大的值
+     > priority_queue`<int>` pq; //默认是大根堆，弹出的是最大的值
      > 
-     > priority_queue<int,greater>pq; //小根堆，弹出的是最小的值
+     > priority_queue`<int,greater>`pq; //小根堆，弹出的是最小的值
 
 - 示例
   
@@ -191,17 +191,17 @@ set和unordered_set也是上面这种情况
 
 - 头文件
   
-  > #include<map>
+  > #include`<map>`
   > 
-  > #include<unordered_map>
+  > #include`<unordered_map>`
 
 - 初始化
   
-  > map<int,string> mp;
+  > map`<int,string>` mp;
   > 
-  > map<int,double> mp;
+  > map`<int,double>` mp;
   > 
-  > map<int,node> mp;
+  > map`<int,node>` mp;
 
 - 函数运用
   
@@ -330,9 +330,9 @@ int main() {
 
 - 比较规则
   
-  - > set<int> s; //从小到大排序
+  - > set`<int>` s; //从小到大排序
     > 
-    > set<int, greater<int>> s; // 从大到小排序
+    > set<int, greater`<int>`> s; // 从大到小排序
   
   - 自定义建立比较规则（通用）
     
