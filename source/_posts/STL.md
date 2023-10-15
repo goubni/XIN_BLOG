@@ -8,7 +8,9 @@ date: 2023-10-14 23:21:00
 
 ---
 
-# STL
+
+
+
 
 ## vector
 
@@ -16,15 +18,15 @@ date: 2023-10-14 23:21:00
 
 - 头文件
   
-  - > #include<vector>
+  > #include
 
 - 初始化
   
-  - > vector<int> c //定义了一个数据类型为int的数组
-    > 
-    > vector<double> c(n) //定义了一个数据类型为double的，长度为n，且元素全为0的数组
-    > 
-    > vector<int> c(n,1) //定义了一个数据类型为int的，长度为n，前元素全为1的数组
+  > vector c //定义了一个数据类型为int的数组
+  > 
+  > vector c(n) //定义了一个数据类型为double的,长为n
+  > 
+  > vector c(n,1) //定义了一个数据类型为int的，长为n，全是1
 
 - 函数运用
   
@@ -40,11 +42,12 @@ date: 2023-10-14 23:21:00
 
 - 代码示例
   
-  - ```cpp
-    #include<iostream>
-    #include<algorithm>
-    #include<vector>
-    using namespace std;int main() {
+  ```cpp
+  #include<iostream>
+  #include<algorithm>
+  #include<vector>
+  using namespace std;
+  int main() {
         vector<int> a;
         a.push_back(3);
         a.push_back(2);
@@ -56,70 +59,91 @@ date: 2023-10-14 23:21:00
         }
         cout << " 这个数组长度为" << a.size() << ",里面的元素排序后是 1 2 3" << endl; 
         return 0;
-     } 
+  } 
     
-    
-    ```
+  ```
+
+
+
+
+
+
+
+
+
+
 
 <br>
 
+<br>
+
+
+
 ## stack
 
- 栈为数据结构的一种，是一个先进后出，后进先出的容器, 可类比java中的Stack，和python中的list
+栈为数据结构的一种，是一个先进后出，后进先出的容器, 可类比java中的Stack，和python中的list
 
 - 头文件
   
-  - > #include<stack>
+  > #include
 
 - 初始化
   
-  - > stack<int> s;
-    > 
-    > stack<string> s;
-    > 
-    > stack<node> s;
+  > stack s;
+  > 
+  > stack s;
+  > 
+  > stack s;
 
 - 函数运用
   
-  - | 代码        | 含义           |
-    |:---------:|:------------:|
-    | s.pop()   | 移出栈顶元素O(1)   |
-    | s.push(6) | 将6压入栈内O(1)   |
-    | s.top()   | 取出栈顶元素O(1)   |
-    | s.empty() | 判断栈是否为空O(1)  |
-    | s.size()  | 返回栈中元素个数O(1) |
+  | 代码        | 含义           |
+  |:---------:|:------------:|
+  | s.pop()   | 移出栈顶元素O(1)   |
+  | s.push(6) | 将6压入栈内O(1)   |
+  | s.top()   | 取出栈顶元素O(1)   |
+  | s.empty() | 判断栈是否为空O(1)  |
+  | s.size()  | 返回栈中元素个数O(1) |
 
 - 代码示例
   
-  - ```cpp
-    #include<iostream>
-    #include <stack>
-    using namespace std;
-    
-    int main() {
-        //创建了一个栈 
-        stack<int> st;
-        st.push(1);
-        st.push(2);
-        st.push(3);
-        cout << "第一次弹出元素是" << st.top() << endl;
-        st.pop(); 
-        cout << "第一次弹出元素是" << st.top() << endl;
-        st.pop();
-        cout << "第一次弹出元素是" << st.top() << endl;
-        return 0;
-     } 
-    ```
+  ```cpp
+  #include<iostream>
+  #include <stack>
+  using namespace std;
+  
+  int main() {
+      //创建了一个栈 
+      stack<int> st;
+      st.push(1);
+      st.push(2);
+      st.push(3);
+      cout << "第一次弹出元素是" << st.top() << endl;
+      st.pop(); 
+      cout << "第一次弹出元素是" << st.top() << endl;
+      st.pop();
+      cout << "第一次弹出元素是" << st.top() << endl;
+      return 0;
+   } 
+  ```
   
   - 第一次弹出元素是3
     第一次弹出元素是2
     第一次弹出元素是1
 
+
+
 <br>
+
+<br>
+
+
+
+
 
 ## priority_queue
 
-deque和queue知识没有了排序功能，一个是双端队列，一个是队列
+deque和queue只是没有了排序功能，一个是双端队列，一个是队列
 
 
 
@@ -127,48 +151,58 @@ deque和queue知识没有了排序功能，一个是双端队列，一个是队�
 
 - 头文件
   
-  - > #include<queue> 没错，只要引入一个queue就可以了
+  > #include //没错，只要引入一个queue就可以了
 
 - 初始化
   
-  - > priority_queue<int> pq; 创建了一个名为pq优先队列
+  > priority_queue pq; //创建了一个名为pq优先队列
 
 - 函数运用
   
-  - 和普通的队列一样，不过它有排序的功能,插入和弹出都得花O(logn)
+  1. 和普通的队列一样，不过它有排序的功能,插入和弹出都得花O(logn)
   
-  - 设置优先级：
-    
-    - > priority_queue<int> pq; //默认是大根堆，弹出的是最大的值
-      > 
-      > priority_queue<int,greater<int>>pq; //小根堆，弹出的是最小的值
+  2. 设置优先级：
+     
+     > priority_queue pq; //默认是大根堆，弹出的是最大的值
+     > 
+     > priority_queue<int,greater>pq; //小根堆，弹出的是最小的值
 
 - 示例
   
-  - ```cpp
-    #include <iostream>
-    #include <queue>
-    using namespace std;
-    
-    int main() {
-        priority_queue<int> pq;
-        pq.push(8);
-        pq.push(4);
-        pq.push(12);
-        cout << "第一次弹出元素是" << pq.top() << endl;
-        pq.pop(); 
-        cout << "第一次弹出元素是" << pq.top() << endl;
-        pq.pop();
-        cout << "第一次弹出元素是" << pq.top() << endl;
-        return 0;
-     } 
-    ```
+  ```cpp
+  #include <iostream>
+  #include <queue>
+  using namespace std;
+  
+  int main() {
+      priority_queue<int> pq;
+      pq.push(8);
+      pq.push(4);
+      pq.push(12);
+      cout << "第一次弹出元素是" << pq.top() << endl;
+      pq.pop(); 
+      cout << "第一次弹出元素是" << pq.top() << endl;
+      pq.pop();
+      cout << "第一次弹出元素是" << pq.top() << endl;
+      return 0;
+   } 
+  ```
   
   - 输出结果：第一次弹出元素是12
     第一次弹出元素是8
     第一次弹出元素是4
 
+
+
+
+
 <br>
+
+<br>
+
+
+
+
 
 ## map
 
@@ -188,90 +222,92 @@ set和unordered_set也是上面这种情况
 
 - 头文件
   
-  - > #include<map>
-    > 
-    > #include<unordered_map>
+  > #include<map>
+  > 
+  > #include<unordered_map>
 
 - 初始化
   
-  - > map<int,string> mp;
-    > 
-    > map<int,double> mp;
-    > 
-    > map<int,node> mp;
+  > map<int,string> mp;
+  > 
+  > map<int,double> mp;
+  > 
+  > map<int,node> mp;
 
 - 函数运用
   
-  - | 代码                   | 含义                                                                |
-    |:--------------------:|:-----------------------------------------------------------------:|
-    | mp.find(key)         | 寻找map中的键O(logn),找到之后返回一个迭代器，当数据存在时，返回数据所在位置的迭代器，数据不存在时，返回mp.end() |
-    | mp.erase(it)         | 删除这个迭代器对应的键值对O(1)                                                 |
-    | mp.erase(key)        | 删除这个键与它映射的值O(logn)                                                |
-    | mp.size()            | 返回映射的对数O(1)                                                       |
-    | mp.clear()           | 清除所有键值对 O(logn)                                                   |
-    | mp.insert()          | 插入元素，构造键值对O(logn)                                                 |
-    | mp.empty()           | 判断是否为空O(1)                                                        |
-    | mp.begin(),mp.rend() | 返回指向map的第一个元素的迭代器O(1)                                             |
-    | mp.end(),mp.rbegin() | 返回指向map的最后一个元素迭代器O(1)                                             |
-    | mp.count(key)        | 查找元素是否存在，存在返回1，不存在返回0 O(logn)                                     |
-    | mp.lower_bound()     | (二分查找)返回一个迭代器，指向键>=key的位置                                         |
-    | mp.upper_bound()     | 返回一个迭代器，指向键>key的位置                                                |
+  | 代码                   | 含义                                                                |
+  |:--------------------:|:-----------------------------------------------------------------:|
+  | mp.find(key)         | 寻找map中的键O(logn),找到之后返回一个迭代器，当数据存在时，返回数据所在位置的迭代器，数据不存在时，返回mp.end() |
+  | mp.erase(it)         | 删除这个迭代器对应的键值对O(1)                                                 |
+  | mp.erase(key)        | 删除这个键与它映射的值O(logn)                                                |
+  | mp.size()            | 返回映射的对数O(1)                                                       |
+  | mp.clear()           | 清除所有键值对 O(logn)                                                   |
+  | mp.insert()          | 插入元素，构造键值对O(logn)                                                 |
+  | mp.empty()           | 判断是否为空O(1)                                                        |
+  | mp.begin(),mp.rend() | 返回指向map的第一个元素的迭代器O(1)                                             |
+  | mp.end(),mp.rbegin() | 返回指向map的最后一个元素迭代器O(1)                                             |
+  | mp.count(key)        | 查找元素是否存在，存在返回1，不存在返回0 O(logn)                                     |
+  | mp.lower_bound()     | (二分查找)返回一个迭代器，指向键>=key的位置                                         |
+  | mp.upper_bound()     | 返回一个迭代器，指向键>key的位置                                                |
 
 - 代码示例
   
-  - ```cpp
-    #include<algorithm>
-    #include <iostream>
-    #include <map> 
-    using namespace std;
-    
-    int main() {
-    	map<string,int> mp;
-    	
-    	//四种增加键值对的方式 
-    	mp["张三"] = 18;
-    	mp.insert({"李四",18});
-    	mp.insert(make_pair("赵六",18));
-    	mp.insert(pair<string,int>("钱七",18));
-    	
-    	//遍历（推荐） 
-    	cout << mp.find("张三")->first << endl;
-    	for(auto x:mp){
-    		cout << x.first << " " << x.second << endl;
-    	}
-    	
-    	//正序遍历，先获得begin()的地址 
-    	auto iter = mp.begin();
-    	while(iter != mp.end()){
-    		cout << iter->first << iter->second << endl;
-    		iter++;
-    	}
-    	
-    	//逆序遍历，先获得rbegin()的地址
-    	auto it = mp.rbegin();
-    	while(it != mp.rend()){
-    		cout << it->first << it->second << endl;
-    		it++;
-    	}
-    	
-    	map<int, string> mp2;
-    	mp2[1] = "星期一";
-    	mp2[2] = "星期二";
-    	mp2[3] = "星期三";
-    	mp2[4] = "星期四";
-    	cout << mp2.find(3)->second << endl;  //输出的是星期三
-    	cout << mp2.find(4)->second << endl;  //输出的是星期四
-    	cout << mp2.lower_bound(3)->second << endl;  //输出的是星期三 
-    	
-    	cout << mp2.size() << endl;  //现在是4 
-    	//将第一个元素的键值对删掉 
-    	mp2.erase(mp2.begin());
-    	cout << mp2.size() << endl;  //现在是3 
-    	
-    	return 0;
-     } 
-    
-    ```
+  ```cpp
+  #include<algorithm>
+  #include <iostream>
+  #include <map> 
+  using namespace std;
+  
+  int main() {
+  	map<string,int> mp;
+  	
+  	//四种增加键值对的方式 
+  	mp["张三"] = 18;
+  	mp.insert({"李四",18});
+  	mp.insert(make_pair("赵六",18));
+  	mp.insert(pair<string,int>("钱七",18));
+  	
+  	//遍历（推荐） 
+  	cout << mp.find("张三")->first << endl;
+  	for(auto x:mp){
+  		cout << x.first << " " << x.second << endl;
+  	}
+  	
+  	//正序遍历，先获得begin()的地址 
+  	auto iter = mp.begin();
+  	while(iter != mp.end()){
+  		cout << iter->first << iter->second << endl;
+  		iter++;
+  	}
+  	
+  	//逆序遍历，先获得rbegin()的地址
+  	auto it = mp.rbegin();
+  	while(it != mp.rend()){
+  		cout << it->first << it->second << endl;
+  		it++;
+  	}
+  	
+  	map<int, string> mp2;
+  	mp2[1] = "星期一";
+  	mp2[2] = "星期二";
+  	mp2[3] = "星期三";
+  	mp2[4] = "星期四";
+  	cout << mp2.find(3)->second << endl;  //输出的是星期三
+  	cout << mp2.find(4)->second << endl;  //输出的是星期四
+  	cout << mp2.lower_bound(3)->second << endl;  //输出的是星期三 
+  	
+  	cout << mp2.size() << endl;  //现在是4 
+  	//将第一个元素的键值对删掉 
+  	mp2.erase(mp2.begin());
+  	cout << mp2.size() << endl;  //现在是3 
+  	return 0;
+   } 
+  
+  ```
+  
+  
+  
 
 
 
@@ -283,11 +319,9 @@ set和unordered_set也是上面这种情况
 > 
 > 3. mp[key]  //这种做法不推荐，如果第一次没有找到元素，那将会自动为这个键映射到一个值0上。浪费空间
 
-还有一种映射
 
-multimap
 
-键可以重复，即一个键对应多个值
+还有一种映射,multimap键可以重复，即一个键对应多个值
 
 <br>
 
@@ -312,7 +346,7 @@ set具有去重功效,函数基本和上面的map很像，时间复杂度也是�
 
 
 
-```cpp（set代码示例）
+```cpp
 #include <iostream>
 #include <set>
 using namespace std;
