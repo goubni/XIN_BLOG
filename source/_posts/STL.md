@@ -10,23 +10,21 @@ date: 2023-10-14 23:21:00
 
 
 
-
-
 ## vector
 
  vector为可变长数组（动态数组），定义的vector数组可以随时添加数值和删除元素
 
 - 头文件
   
-  > #include
+  > #include<vector>
 
 - 初始化
   
-  > vector c //定义了一个数据类型为int的数组
+  > vector<int> c //定义了一个数据类型为int的数组
   > 
-  > vector c(n) //定义了一个数据类型为double的,长为n
+  > vector<double> c(n) //定义了一个数据类型为double的,长为n
   > 
-  > vector c(n,1) //定义了一个数据类型为int的，长为n，全是1
+  > vector<int> c(n,1) //定义了一个数据类型为int的，长为n，全是1
 
 - 函数运用
   
@@ -60,24 +58,11 @@ date: 2023-10-14 23:21:00
         cout << " 这个数组长度为" << a.size() << ",里面的元素排序后是 1 2 3" << endl; 
         return 0;
   } 
-    
   ```
 
-
-
-
-
-
-
-
-
-
-
 <br>
 
 <br>
-
-
 
 ## stack
 
@@ -85,15 +70,15 @@ date: 2023-10-14 23:21:00
 
 - 头文件
   
-  > #include
+  > #include<stack>
 
 - 初始化
   
-  > stack s;
+  > stack<int> s;
   > 
-  > stack s;
+  > stack<string> s;
   > 
-  > stack s;
+  > stack<double> s;
 
 - 函数运用
   
@@ -131,31 +116,23 @@ date: 2023-10-14 23:21:00
     第一次弹出元素是2
     第一次弹出元素是1
 
-
-
 <br>
 
 <br>
-
-
-
-
 
 ## priority_queue
 
 deque和queue只是没有了排序功能，一个是双端队列，一个是队列
 
-
-
 优先队列嘛
 
 - 头文件
   
-  > #include //没错，只要引入一个queue就可以了
+  > #include <queue> //没错，只要引入一个queue就可以了
 
 - 初始化
   
-  > priority_queue pq; //创建了一个名为pq优先队列
+  > priority_queue<int> pq; //创建了一个名为pq优先队列
 
 - 函数运用
   
@@ -163,7 +140,7 @@ deque和queue只是没有了排序功能，一个是双端队列，一个是队�
   
   2. 设置优先级：
      
-     > priority_queue pq; //默认是大根堆，弹出的是最大的值
+     > priority_queue<int> pq; //默认是大根堆，弹出的是最大的值
      > 
      > priority_queue<int,greater>pq; //小根堆，弹出的是最小的值
 
@@ -192,17 +169,9 @@ deque和queue只是没有了排序功能，一个是双端队列，一个是队�
     第一次弹出元素是8
     第一次弹出元素是4
 
-
-
-
-
 <br>
 
 <br>
-
-
-
-
 
 ## map
 
@@ -260,56 +229,50 @@ set和unordered_set也是上面这种情况
   using namespace std;
   
   int main() {
-  	map<string,int> mp;
-  	
-  	//四种增加键值对的方式 
-  	mp["张三"] = 18;
-  	mp.insert({"李四",18});
-  	mp.insert(make_pair("赵六",18));
-  	mp.insert(pair<string,int>("钱七",18));
-  	
-  	//遍历（推荐） 
-  	cout << mp.find("张三")->first << endl;
-  	for(auto x:mp){
-  		cout << x.first << " " << x.second << endl;
-  	}
-  	
-  	//正序遍历，先获得begin()的地址 
-  	auto iter = mp.begin();
-  	while(iter != mp.end()){
-  		cout << iter->first << iter->second << endl;
-  		iter++;
-  	}
-  	
-  	//逆序遍历，先获得rbegin()的地址
-  	auto it = mp.rbegin();
-  	while(it != mp.rend()){
-  		cout << it->first << it->second << endl;
-  		it++;
-  	}
-  	
-  	map<int, string> mp2;
-  	mp2[1] = "星期一";
-  	mp2[2] = "星期二";
-  	mp2[3] = "星期三";
-  	mp2[4] = "星期四";
-  	cout << mp2.find(3)->second << endl;  //输出的是星期三
-  	cout << mp2.find(4)->second << endl;  //输出的是星期四
-  	cout << mp2.lower_bound(3)->second << endl;  //输出的是星期三 
-  	
-  	cout << mp2.size() << endl;  //现在是4 
-  	//将第一个元素的键值对删掉 
-  	mp2.erase(mp2.begin());
-  	cout << mp2.size() << endl;  //现在是3 
-  	return 0;
+      map<string,int> mp;
+  
+      //四种增加键值对的方式 
+      mp["张三"] = 18;
+      mp.insert({"李四",18});
+      mp.insert(make_pair("赵六",18));
+      mp.insert(pair<string,int>("钱七",18));
+  
+      //遍历（推荐） 
+      cout << mp.find("张三")->first << endl;
+      for(auto x:mp){
+          cout << x.first << " " << x.second << endl;
+      }
+  
+      //正序遍历，先获得begin()的地址 
+      auto iter = mp.begin();
+      while(iter != mp.end()){
+          cout << iter->first << iter->second << endl;
+          iter++;
+      }
+  
+      //逆序遍历，先获得rbegin()的地址
+      auto it = mp.rbegin();
+      while(it != mp.rend()){
+          cout << it->first << it->second << endl;
+          it++;
+      }
+  
+      map<int, string> mp2;
+      mp2[1] = "星期一";
+      mp2[2] = "星期二";
+      mp2[3] = "星期三";
+      mp2[4] = "星期四";
+      cout << mp2.find(3)->second << endl;  //输出的是星期三
+      cout << mp2.find(4)->second << endl;  //输出的是星期四
+      cout << mp2.lower_bound(3)->second << endl;  //输出的是星期三 
+  
+      cout << mp2.size() << endl;  //现在是4 
+      //将第一个元素的键值对删掉 
+      mp2.erase(mp2.begin());
+      cout << mp2.size() << endl;  //现在是3 
+      return 0;
    } 
-  
   ```
-  
-  
-  
-
-
 
 > 注意：当要查找一个map中的元素时，有三种方法：
 > 
@@ -319,19 +282,13 @@ set和unordered_set也是上面这种情况
 > 
 > 3. mp[key]  //这种做法不推荐，如果第一次没有找到元素，那将会自动为这个键映射到一个值0上。浪费空间
 
-
-
 还有一种映射,multimap键可以重复，即一个键对应多个值
 
 <br>
 
-
-
 ## set
 
 set具有去重功效,函数基本和上面的map很像，时间复杂度也是一样，而且默认set是从小到大排序的，如果要不是排序的，可以用unordered_set。
-
-
 
 可以类比python，java中的类
 
@@ -344,30 +301,28 @@ set具有去重功效,函数基本和上面的map很像，时间复杂度也是�
 | multiset           | SortedList | 俺不知道      |
 | unordered_multiset | list       | ArrayList |
 
-
-
 ```cpp
 #include <iostream>
 #include <set>
 using namespace std;
 
 int main() {
-	set<int> s;
-	s.insert(1);
-	s.insert(1);
-	s.insert(2);
-	//迭代器遍历 
-	auto it = s.begin();
-	while (it != s.end()){
-		cout << *it << endl;
-		it++;
-	}
-	
-	//智能指针
-	for(auto x: s){
-		cout << x << endl;
-	} 
-	return 0;
+    set<int> s;
+    s.insert(1);
+    s.insert(1);
+    s.insert(2);
+    //迭代器遍历 
+    auto it = s.begin();
+    while (it != s.end()){
+        cout << *it << endl;
+        it++;
+    }
+
+    //智能指针
+    for(auto x: s){
+        cout << x << endl;
+    } 
+    return 0;
  } 
 ```
 
@@ -431,26 +386,17 @@ int main() {
 using namespace std;
 
 int main() {
-	//解锁cin，cout 
-	ios::sync_with_stdio(false);
-	//取消绑定 
-	cin.tie(0);cout.tie(0);
-	string s;
-	getline(cin,s);
-	cout << s;
-	return 0;
+    //解锁cin，cout 
+    ios::sync_with_stdio(false);
+    //取消绑定 
+    cin.tie(0);cout.tie(0);
+    string s;
+    getline(cin,s);
+    cout << s;
+    return 0;
  } 
-
 ```
 
-
-
-
-
-
-
 <br>
-
-
 
 > python刷题转c++真累，两边都要兼顾，蓝桥用python打，后面的比赛又得用c++😵😵

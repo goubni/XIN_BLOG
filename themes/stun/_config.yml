@@ -1023,7 +1023,7 @@ cdn:
   # See: https://github.com/MoOx/pjax/
   # Example:
   # pjax: //cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js
-  pjax:
+  pjax: true
 
   # Using version: 1.0.16
   # See: https://github.com/overtrue/share.js
@@ -1032,3 +1032,5 @@ cdn:
   # share_css: //cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css
   share_js:
   share_css:
+
+

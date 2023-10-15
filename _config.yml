@@ -11,6 +11,7 @@ search:
   content: true
 aplayer:
   meting: true
+  asset_inject: false
 url: http://example.com
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
