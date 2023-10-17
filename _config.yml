@@ -12,7 +12,7 @@ search:
 aplayer:
   meting: true
   asset_inject: false
-url: http://example.com
+url: http://blog.unaiwoaun.xyz
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
 pretty_urls:
