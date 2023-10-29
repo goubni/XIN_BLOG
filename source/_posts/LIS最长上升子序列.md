@@ -1,6 +1,6 @@
 ---
-title: 线性DP 最长上升子序列$(LIS)$
-excerpt: 动规$O(n^2)$，二分$O(nlogn)$
+title: 线性DP 最长上升子序列(LIS)
+excerpt: 动规O(n^2)，二分O(nlogn)
 tags: dp
 categories: dp题型
 quicklink: true
@@ -240,3 +240,65 @@ int main(){
 <br>
 
 > 最长上升子序列有两种解法，一种动态规划$O(n^2)$，一种二分$O(nlogn)$。
+
+
+
+模板题练手：
+
+[300. 最长递增子序列 - 力扣（LeetCode）](https://leetcode.cn/problems/longest-increasing-subsequence/description/)
+
+[B3637 最长上升子序列 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/B3637)
+
+两种写法都要掌握
+
+[记录详情 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/record/131577741)，这一题用二分加上暴力模拟，可以过三个例子，不过也可以很好的练手
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#define N 100010
+using namespace std;
+
+int find(int x,vector<int> a,int len,vector<int> b){
+    int l=1,r=len,mid;
+    while(l<=r){
+        mid=(l+r)/2;
+        if(x>b[mid]) l=mid+1;
+        else r=mid-1;
+    }
+    return l;
+}
+
+int f(vector<int> a, int MAX){
+    vector<int> b(MAX+1);
+    int len=1;
+    b[1]=a[0];
+    for(int i=1;i<=MAX;i++){
+        if(a[i] > b[len]){
+            b[++len]=a[i];
+        } else {
+            int j=find(a[i],a,len,b);
+            b[j]=a[i];
+        }
+    }
+    return len;
+}
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for(int i=0;i<n;i++){
+        int t;
+        cin >> t;
+        a.insert(a.begin()+t,i+1);
+        if(i==0){
+            cout << 1 << endl;
+        } else {
+            cout << f(a,i) << endl;
+        }
+    }
+    return 0;
+}
+```
