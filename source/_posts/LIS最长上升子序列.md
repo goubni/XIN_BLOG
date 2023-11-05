@@ -241,8 +241,6 @@ int main(){
 
 > 最长上升子序列有两种解法，一种动态规划$O(n^2)$，一种二分$O(nlogn)$。
 
-
-
 模板题练手：
 
 [300. 最长递增子序列 - 力扣（LeetCode）](https://leetcode.cn/problems/longest-increasing-subsequence/description/)
