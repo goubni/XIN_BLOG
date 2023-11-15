@@ -8,9 +8,9 @@ date: 2023-11-13 22:48:49
 
 ---
 
-> 今天刷了一天的dfs，主要是想捡回深搜的思维，发现好多题大概的思维都已经对了，就是在一些小细节上没有处理好导致WA,TLE，MLE。
+> 这两天刷了dfs，主要是想捡回深搜的思维，发现好多题大概的思维都已经对了，就是在一些小细节上没有处理好导致WA,TLE，MLE。
 
-先把今天刷的题目列出来，难度按照从小到达排列
+先把这两天天刷的题目列出来
 
 [P1036 选数 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P1036)
 
@@ -21,6 +21,20 @@ date: 2023-11-13 22:48:49
 [P1135 奇怪的电梯 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P1135)
 
 [P1443 马的遍历 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P1443)
+
+[P1101 单词方阵 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P1101)
+
+[P1162 填涂颜色 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P1162)
+
+[P2036 [COCI2008-2009#2] PERKET - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P2036)
+
+[P2392 kkksc03考前临时抱佛脚 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P2392)
+
+[P2404 自然数的拆分问题 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P2404)
+
+
+
+
 
 <hr>
 
@@ -315,3 +329,232 @@ int main() {
 ```
 
 刷了一天（半天）的dfs，确实捡回不少东西，开心。
+
+
+
+## 单词方阵
+
+注意访问细节
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+const int N = 105;
+string graph[N];
+bool vis[N][N];
+string eg ="yizhong";
+int d[8][2] = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+int n,nx,ny;
+bool isoutindexof(int i,int j){
+	return !(i<0||i>=n||j<0||j>=n);
+} 
+bool check(int x,int y,int k){
+	int index=1;
+	for(int i=1;i<7;i++){
+		if(isoutindexof(x,y)&&graph[x][y]==eg[index]){
+			index++;
+			x += d[k][0];
+			y += d[k][1];
+		} else {
+			return false;
+		}
+	}
+	return true;
+}
+void setvis(int x,int y,int k){
+	for(int i=0;i<7;i++){
+		vis[x][y]=1;
+		x += d[k][0];
+		y += d[k][1];
+	}
+}
+
+int main(){
+	cin >> n;
+	for(int i=0;i<n;i++) cin >> graph[i];
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			if(graph[i][j]=='y'){
+				for(int k=0;k<8;k++){
+					nx = d[k][0] + i;
+					ny = d[k][1] + j;
+					if(isoutindexof(nx,ny)&&check(nx,ny,k)){
+						setvis(i,j,k);
+					}
+				}
+			}
+		}
+	}
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			if(vis[i][j]) cout << graph[i][j]; 
+			else cout << "*";
+		}
+		cout << endl;
+	}
+	return 0;
+}
+```
+
+
+
+## 填涂颜色
+
+这题思路相当巧妙，再外面再加一圈辅助，妙
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int n;
+int a[35][35];
+int d[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+void dfs(int x, int y) {
+   a[x][y]=2;
+   for(int i=0;i<4;i++){
+       int nx = d[i][0] + x;
+       int ny = d[i][1] + y;
+       if(nx<0||nx>n+1||ny<0||ny>n+1)continue;
+       if(a[nx][ny]==0){
+               dfs(nx,ny);
+       }
+   }
+}
+
+int main() {
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            cin >> a[i][j];
+        }
+    }
+     dfs(0,0);
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            cout << 2-a[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+```
+
+## PERKET
+
+搜就完事，注意清水的情况
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int s[11],b[11],n,ans=(1<<30);
+
+void dfs(int i,int x,int y){
+    if(i>n){
+        if(x==1&&y==0)return;
+        ans = min(ans,abs(x-y));
+        return;
+    }
+    dfs(i+1,x*s[i],y+b[i]);
+    dfs(i+1,x,y);
+}
+
+int main() {
+    cin >> n;
+    for (int i = 1; i <= n; i++) cin >> s[i] >> b[i];
+      dfs(1,1,0);
+      cout << ans;
+}
+```
+
+
+
+## *考前临时抱佛脚
+
+这题还得多做，不好理解
+
+```cpp
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int l, r, ans, res;
+int s[5];
+int a[21];
+
+void dfs(int x, int y) {
+    if (x > s[y]) {
+        res = min(res, max(l, r));
+        return;
+    }
+    l += a[x];
+    dfs(x + 1, y);
+    l -= a[x];
+    r += a[x];
+    dfs(x + 1, y);
+    r -= a[x];
+}
+
+int main() {
+    cin >> s[1] >> s[2] >> s[3] >> s[4];
+    for (int i = 1; i <= 4; i++) {
+        l = r = 0;
+        res = 19260817;
+        for (int j = 1; j <= s[i]; j++) {
+            cin >> a[j];
+        }
+        dfs(1, i);
+        ans += res;
+    }
+    cout << ans;
+
+    return 0;
+}
+```
+
+
+
+## 自然数拆分
+
+回溯细节把控好
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int a[12];
+int n,p=0;
+void dfs(int i,int sum,int start){
+	if(sum<0)return;
+	if(sum==0){
+		for(int j=0;j<p;j++){
+			if(j==0) cout << a[j];
+			else cout << "+" << a[j];
+		}
+		cout << endl; 
+		return;
+	} 
+	for(int i=start;i<n;i++){
+		a[p++] = i;
+		dfs(i,sum-i,i);
+		a[--p] = 0;
+	}
+}
+int main(){
+	cin >> n;
+	dfs(n,n,1);
+	return 0;
+}
+```
+
+
+
+
+
+
+
+
+
+> 定期回来复习重做
+
+
