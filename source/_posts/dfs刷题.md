@@ -32,9 +32,13 @@ date: 2023-11-13 22:48:49
 
 [P2404 自然数的拆分问题 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P2404)
 
+11月19号更新
 
+[P1002 [NOIP2002 普及组] 过河卒 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P1002)
 
+[P2089 烤鸡 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P2089)
 
+[P1596 [USACO10OCT] Lake Counting S - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P1596)
 
 <hr>
 
@@ -330,8 +334,6 @@ int main() {
 
 刷了一天（半天）的dfs，确实捡回不少东西，开心。
 
-
-
 ## 单词方阵
 
 注意访问细节
@@ -346,57 +348,55 @@ string eg ="yizhong";
 int d[8][2] = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
 int n,nx,ny;
 bool isoutindexof(int i,int j){
-	return !(i<0||i>=n||j<0||j>=n);
+    return !(i<0||i>=n||j<0||j>=n);
 } 
 bool check(int x,int y,int k){
-	int index=1;
-	for(int i=1;i<7;i++){
-		if(isoutindexof(x,y)&&graph[x][y]==eg[index]){
-			index++;
-			x += d[k][0];
-			y += d[k][1];
-		} else {
-			return false;
-		}
-	}
-	return true;
+    int index=1;
+    for(int i=1;i<7;i++){
+        if(isoutindexof(x,y)&&graph[x][y]==eg[index]){
+            index++;
+            x += d[k][0];
+            y += d[k][1];
+        } else {
+            return false;
+        }
+    }
+    return true;
 }
 void setvis(int x,int y,int k){
-	for(int i=0;i<7;i++){
-		vis[x][y]=1;
-		x += d[k][0];
-		y += d[k][1];
-	}
+    for(int i=0;i<7;i++){
+        vis[x][y]=1;
+        x += d[k][0];
+        y += d[k][1];
+    }
 }
 
 int main(){
-	cin >> n;
-	for(int i=0;i<n;i++) cin >> graph[i];
-	for(int i=0;i<n;i++){
-		for(int j=0;j<n;j++){
-			if(graph[i][j]=='y'){
-				for(int k=0;k<8;k++){
-					nx = d[k][0] + i;
-					ny = d[k][1] + j;
-					if(isoutindexof(nx,ny)&&check(nx,ny,k)){
-						setvis(i,j,k);
-					}
-				}
-			}
-		}
-	}
-	for(int i=0;i<n;i++){
-		for(int j=0;j<n;j++){
-			if(vis[i][j]) cout << graph[i][j]; 
-			else cout << "*";
-		}
-		cout << endl;
-	}
-	return 0;
+    cin >> n;
+    for(int i=0;i<n;i++) cin >> graph[i];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(graph[i][j]=='y'){
+                for(int k=0;k<8;k++){
+                    nx = d[k][0] + i;
+                    ny = d[k][1] + j;
+                    if(isoutindexof(nx,ny)&&check(nx,ny,k)){
+                        setvis(i,j,k);
+                    }
+                }
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(vis[i][j]) cout << graph[i][j]; 
+            else cout << "*";
+        }
+        cout << endl;
+    }
+    return 0;
 }
 ```
-
-
 
 ## 填涂颜色
 
@@ -468,8 +468,6 @@ int main() {
 }
 ```
 
-
-
 ## *考前临时抱佛脚
 
 这题还得多做，不好理解
@@ -513,8 +511,6 @@ int main() {
 }
 ```
 
-
-
 ## 自然数拆分
 
 回溯细节把控好
@@ -525,36 +521,156 @@ using namespace std;
 int a[12];
 int n,p=0;
 void dfs(int i,int sum,int start){
-	if(sum<0)return;
-	if(sum==0){
-		for(int j=0;j<p;j++){
-			if(j==0) cout << a[j];
-			else cout << "+" << a[j];
-		}
-		cout << endl; 
-		return;
-	} 
-	for(int i=start;i<n;i++){
-		a[p++] = i;
-		dfs(i,sum-i,i);
-		a[--p] = 0;
-	}
+    if(sum<0)return;
+    if(sum==0){
+        for(int j=0;j<p;j++){
+            if(j==0) cout << a[j];
+            else cout << "+" << a[j];
+        }
+        cout << endl; 
+        return;
+    } 
+    for(int i=start;i<n;i++){
+        a[p++] = i;
+        dfs(i,sum-i,i);
+        a[--p] = 0;
+    }
 }
 int main(){
-	cin >> n;
-	dfs(n,n,1);
-	return 0;
+    cin >> n;
+    dfs(n,n,1);
+    return 0;
 }
 ```
 
+## 1002过河卒
 
+这题本来是用动态规划做的，但是dfs也可以，不过会TLE几个,nx,ny还是定义成局部变量好，不然会坏事
 
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int n,m,MX,MY;
+bool vis[25][25];
+int md[8][2] = {{-1,-2},{-2,-1},{-2,1},{-1,2},{1,-2},{2,-1},{2,1},{1,2}};
+int d[2][2] = {{1,0},{0,1}};
+bool check(int i,int j){
+    return (i>n||j>m);
+}
+int dfs(int x,int y,int step){
+    int res = 0;
+    if(x==n&&y==m){
+        return 1;
+    }
+    if(step>45)return 0;
+    for(int i=0;i<2;i++){
+        int nx = x + d[i][0];
+        int ny = y + d[i][1];
+        if(check(nx,ny))continue;
+        if(!vis[nx][ny]){
+            res += dfs(nx,ny,step+1);
+        }
+    }
+    return res;
+}
+int main(){
+    cin >> n >> m >> MX >> MY;
+    vis[MX][MY] = 1;
+    for(int i=0;i<8;i++){
+        int nx = MX + md[i][0];
+        int ny = MY + md[i][1];
+        if(check(nx,ny))continue;
+        vis[nx][ny] = 1;
+    }
+    cout << dfs(0,0,0);
+    return 0;
 
+}
+```
 
+## 2089烤鸡
 
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int n,cnt=1,c;
+int a[12];
+int gr[100000][12];
+void dfs(int step,int sum){
+    if(step==10){
+        if(sum==n){
+            for(int i=1;i<=10;i++){
+                gr[c][i]=a[i];
+            }
+            c++;
+        }
+        return;
+    }
+    for(int i=1;i<=3;i++){
+        a[cnt++] = i;
+        dfs(step+1,sum+i);
+        a[--cnt] = 0;
+    }
+}
 
+int main(){
+    cin >> n;
+    if(n>30){
+        cout <<0;
+        return 0;
+    }
+    dfs(0,0);
+    cout << c << endl;
+    for(int i=0;i<c;i++){
+        for(int j=1;j<=10;j++){
+            cout << gr[i][j] << " ";
+        }
+        cout << endl; 
+    }
+    return 0;
+}
+```
 
+## 1596LakeCounting
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+string graph[101];
+int n,m,ans;
+bool vis[101][101];
+int d[8][2] = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+
+void dfs(int x,int y){
+    if(vis[x][y])return;
+    vis[x][y] = true;
+    for(int i=0;i<8;i++){
+        int nx = d[i][0]+x;
+        int ny = d[i][1]+y;
+        if(nx<0||nx>=n||ny<0||ny>=m)continue;
+        if(graph[nx][ny]=='W'){
+            dfs(nx,ny);
+        }
+    }
+}
+
+int main(){
+    cin >> n >> m;
+    for(int i=0;i<n;i++){
+        cin >> graph[i];    
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(graph[i][j]=='W'&&!vis[i][j]){
+                dfs(i,j);
+                ans++;
+            }
+        }
+    }
+    cout << ans;
+    return 0; 
+
+}
+```
 
 > 定期回来复习重做
-
-
