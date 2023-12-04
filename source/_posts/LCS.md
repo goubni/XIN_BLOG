@@ -2,7 +2,7 @@
 title: 最长公共子序列(LCS)
 excerpt: 动规O(m*n)
 tags: dp
-categories: dp题型
+categories: 线性dp系列
 quicklink: true
 date: 2023-10-30 10:30:00
 

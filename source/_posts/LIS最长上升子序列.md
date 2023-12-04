@@ -2,7 +2,7 @@
 title: 线性DP 最长上升子序列(LIS)
 excerpt: 动规O(n^2)，二分O(nlogn)
 tags: dp
-categories: dp题型
+categories: 线性dp系列
 quicklink: true
 date: 2023-10-25 10:40:00
 

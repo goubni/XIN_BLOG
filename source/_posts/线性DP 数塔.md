@@ -2,7 +2,7 @@
 title: 线性DP 数字三角形
 excerpt: 关于数字三角形的线性DP
 tags: dp
-categories: dp题型
+categories: 线性dp系列
 quicklink: true
 date: 2023-10-24 23:45:00
 
